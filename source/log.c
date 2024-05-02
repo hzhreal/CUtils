@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
-#include <time.h>
 #include "log.h"
 
 void init_log_ctx(LogConfig **ctx, const char *format, const uint8_t time_str_bytelen) {

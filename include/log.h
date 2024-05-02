@@ -1,8 +1,11 @@
 #ifndef LOG_H
 #define LOG_H
 
-#include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <time.h>
 
 typedef struct {
     char *format;

@@ -2,7 +2,10 @@
 #define FILE_H
 
 #include <stdint.h>
+#include <stdio.h>
+#include <errno.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 int readFile(uint8_t **buf, size_t *len, const char *filename);
 int writeFile(uint8_t **buf, size_t *len, const char *filename);

@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdint.h>
-#include <stddef.h>
 #include "extra.h"
 
 void hexdump_uint8(FILE *stream, const uint8_t *data, const size_t len) {

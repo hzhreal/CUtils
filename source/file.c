@@ -1,8 +1,3 @@
-#include <stdint.h>
-#include <stdio.h>
-#include <errno.h>
-#include <stddef.h>
-#include <stdlib.h>
 #include "file.h"
 
 // returns 0 on success, 1 on failure
