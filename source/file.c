@@ -33,7 +33,7 @@ int readFile(uint8_t **buf, size_t *len, const char *filename) {
     // read file
     bytesRead = fread(*buf, 1, *len, fd);
     if (bytesRead != *len) {
-        perror("Wrote insufficent bytes to file");
+        perror("Read insufficent bytes");
         goto clean; 
     }
 
@@ -52,7 +52,7 @@ int readFile(uint8_t **buf, size_t *len, const char *filename) {
 }
 
 // returns 0 on success, 1 on failure
-int writeFile(uint8_t **buf, size_t *len, const char *filename) {
+int writeFile(uint8_t **buf, const size_t len, const char *filename) {
     FILE *fd;
     size_t bytesWritten;
 
@@ -64,8 +64,8 @@ int writeFile(uint8_t **buf, size_t *len, const char *filename) {
     }
 
     // write to file
-    bytesWritten = fwrite(*buf, 1, *len, fd);
-    if (bytesWritten != *len) {
+    bytesWritten = fwrite(*buf, 1, len, fd);
+    if (bytesWritten != len) {
         perror("Failed to write sufficent bytes.");
         goto clean;
     }

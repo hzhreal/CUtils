@@ -26,21 +26,21 @@ void init_log_ctx(LogConfig **ctx, const char *format, const uint8_t time_str_by
         }
 }
 
-void free_log_ctx(LogConfig **ctx) {
-    if (*ctx) {
-        free((*ctx)->format);
-        free(*ctx);
-        *ctx = NULL;
+void free_log_ctx(LogConfig *ctx) {
+    if (ctx) {
+        free(ctx->format);
+        free(ctx);
+        ctx = NULL;
     }
 }
 
-void log_out(LogConfig **ctx, FILE *stream, const char *msg) {
+void log_out(const LogConfig *ctx, FILE *stream, const char *msg) {
     time_t cur_time;
     struct tm *t_info;
     char *time_str = NULL;
 
     // allocate time str based on macro from header
-    time_str = (char *)malloc(((*ctx)->time_str_bytelen + 1) * sizeof(char));
+    time_str = (char *)malloc((ctx->time_str_bytelen + 1) * sizeof(char));
     if (!time_str) {
         perror("Memory allocation failed");
         return;
@@ -51,7 +51,7 @@ void log_out(LogConfig **ctx, FILE *stream, const char *msg) {
     t_info = localtime(&cur_time);
 
     // format time
-    if (strftime(time_str, (*ctx)->time_str_bytelen + 1, (*ctx)->format, t_info) == 0) {
+    if (strftime(time_str, ctx->time_str_bytelen + 1, ctx->format, t_info) == 0) {
         perror("Error formatting time");
         free(time_str);
         return;

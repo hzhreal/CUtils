@@ -16,24 +16,21 @@ int main() {
     uint8_t *buf;
     size_t len;
 
-    init_log_ctx(&ctx, FORMAT, BYTELEN);
-    if (!ctx) {
-        return 1;
-    }
-    log_out(&ctx, stdout, "test");
-    free_log_ctx(&ctx);
-
     if (readFile(&buf, &len, FILENAME) != 0) {
         return 1;
     }
 
-    if (writeFile(&buf, &len, FILENAME_OUT) != 0) {
+    if (writeFile(&buf, len, FILENAME_OUT) != 0) {
         return 1;
     }
 
     printf("Starting to hexdump\n");
     hexdump_uint8(stdout, buf, len);
     printf("Hexdumped\n");
+
+    init_log_ctx(&ctx, FORMAT, BYTELEN);
+    log_out(ctx, stdout, "test");
+    free_log_ctx(ctx);
 
     free(buf);
 }
