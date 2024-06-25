@@ -20,7 +20,7 @@ int main() {
         return 1;
     }
 
-    if (writeFile(&buf, len, FILENAME_OUT) != 0) {
+    if (writeFile(buf, len, FILENAME_OUT) != 0) {
         return 1;
     }
 
