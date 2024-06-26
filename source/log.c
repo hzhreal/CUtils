@@ -1,6 +1,6 @@
 #include "log.h"
 
-void init_log_ctx(LogConfig **ctx, const char *format, const uint8_t time_str_bytelen) {
+void init_log_ctx(LogConfig **ctx, const char *format, uint8_t time_str_bytelen) {
 
     // allocate context
     *ctx = (LogConfig *)malloc(sizeof(LogConfig));

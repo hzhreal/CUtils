@@ -5,6 +5,6 @@
 #include <stdint.h>
 #include <stddef.h>
 
-void hexdump_uint8(FILE *stream, const uint8_t *data, const size_t len);
+void hexdump_uint8(FILE *stream, const uint8_t *data, size_t len);
 
 #endif // EXTRA_H

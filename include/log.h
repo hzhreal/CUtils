@@ -12,7 +12,7 @@ typedef struct {
     uint8_t time_str_bytelen;
 } LogConfig;
 
-void init_log_ctx(LogConfig **ctx, const char *format, const uint8_t time_str_bytelen);
+void init_log_ctx(LogConfig **ctx, const char *format, uint8_t time_str_bytelen);
 void free_log_ctx(LogConfig *ctx);
 void log_out(const LogConfig *ctx, FILE *stream, const char *msg);
 

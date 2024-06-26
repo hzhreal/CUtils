@@ -52,7 +52,7 @@ int readFile(uint8_t **buf, size_t *len, const char *filename) {
 }
 
 // returns 0 on success, 1 on failure
-int writeFile(const uint8_t *buf, const size_t len, const char *filename) {
+int writeFile(const uint8_t *buf, size_t len, const char *filename) {
     FILE *fd;
     size_t bytesWritten;
 

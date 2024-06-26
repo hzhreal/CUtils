@@ -8,6 +8,6 @@
 #include <stdlib.h>
 
 int readFile(uint8_t **buf, size_t *len, const char *filename);
-int writeFile(const uint8_t *buf, const size_t len, const char *filename);
+int writeFile(const uint8_t *buf, size_t len, const char *filename);
 
 #endif // FILE_H
